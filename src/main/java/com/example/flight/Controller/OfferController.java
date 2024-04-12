@@ -16,7 +16,7 @@ import com.example.flight.Entity.Offer;
 import com.example.flight.Service.OfferService;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/offer")
 @CrossOrigin(origins = "*")
 public class OfferController {
 
