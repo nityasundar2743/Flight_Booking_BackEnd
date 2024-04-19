@@ -2,6 +2,7 @@ package com.example.flight.Entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+//wrapping used for login and signUp
 public class WrappedUser extends User{
 	@JsonProperty("isAuth")
 	boolean isAuth;

@@ -34,7 +34,7 @@ public class UserController {
 		wUser.setAuth(true);
 		wUser.setAdmin(user.isAdmin());
 		wUser.setEmail(user.getEmail());
-		wUser.setPassword(user.getPassword());
+		wUser.setPassword(null);
 		wUser.setPhone(user.getPhone());
 		System.out.println(wUser.toString());
 		return wUser;
@@ -50,7 +50,7 @@ public class UserController {
         if(userService.checkUserExists(email)) {
         	if(password.equals(userService.getUserByEmail(email).getPassword())) {
 	        	wUser.setEmail(email);
-	        	wUser.setPassword(password);
+	        	wUser.setPassword(null);
 	        	wUser.setAdmin(isAdmin);
 	        	wUser.setAuth(true);
 	        	return wUser;
