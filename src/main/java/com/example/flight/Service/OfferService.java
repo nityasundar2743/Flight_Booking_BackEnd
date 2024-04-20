@@ -27,6 +27,18 @@ public class OfferService {
 		}
 	}
 	
+	public void addAllOffer(List<Offer> offerlist) {
+		for(Offer offer:offerlist) {
+			if(offerMap.containsKey(offer.getOfferId())) {
+				throw new TicketAlreadyExistsException("Ticket Exists");
+			}
+			else {
+				offerList.add(offer);
+				offerMap.put(offer.getOfferId(), offer);
+			}
+		}
+	}
+	
 	public List<Offer> getAllOffer() {
 		return offerList;
 	}

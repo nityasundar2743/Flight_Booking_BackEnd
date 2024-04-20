@@ -28,6 +28,11 @@ public class OfferController {
 		offerService.addOffer(offer);
 	}
 	
+	@PostMapping("/addalloffers")
+	public void addOffers(@RequestBody List<Offer> offerList) {
+		offerService.addAllOffer(offerList);
+	}
+	
 	@GetMapping("/alloffer")
 	public List<Offer> getAllOffers() {
 		return offerService.getAllOffer();
