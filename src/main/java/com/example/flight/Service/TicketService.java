@@ -20,7 +20,7 @@ public class TicketService {
 	
 	public void bookTicket(Ticket ticket) {
 		if(ticketMap.containsKey(ticket.getOffer().getOfferId())) {
-			throw new TicketAlreadyExistsException("Ticket Exists");
+			throw new TicketAlreadyExistsException("Ticket Already Exists");
 		}
 		else {
 			ticketList.add(ticket);
