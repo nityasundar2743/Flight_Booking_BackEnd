@@ -17,7 +17,7 @@ public class WrappedUser extends User{
 
 	@Override
 	public String toString() {
-		return "WrappedUser [isAuth=" + isAuth + ", email=" + email + ", password=" + password + ", phone=" + phone
+		return "WrappedUser [isAuth=" + isAuth + ", email=" + email + ", password=" + password + ", phone=" + phoneNumber
 				+ ", isAdmin=" + isAdmin + "]";
 	}
 	

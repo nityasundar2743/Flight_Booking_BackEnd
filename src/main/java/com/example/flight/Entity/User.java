@@ -5,15 +5,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class User {
 	String email;
 	String password;
-	String phone;
+	String phoneNumber;
 	@JsonProperty("isAdmin")
 	boolean isAdmin;
 	
 	public String getPhone() {
-		return phone;
+		return phoneNumber;
 	}
 	public void setPhone(String phone) {
-		this.phone = phone;
+		this.phoneNumber = phone;
 	}
 	public String getEmail() {
 		return email;
@@ -35,7 +35,7 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [email=" + email + ", password=" + password + ", phone=" + phone + ", isAdmin=" + isAdmin + "]";
+		return "User [email=" + email + ", password=" + password + ", phone=" + phoneNumber + ", isAdmin=" + isAdmin + "]";
 	}
 	
 }
