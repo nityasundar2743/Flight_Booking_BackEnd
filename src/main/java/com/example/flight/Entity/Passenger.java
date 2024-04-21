@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 @Entity
 public class Passenger {
 	String name;
-	String age;
 	String phone;
 	
 	public String getName() {
@@ -13,12 +12,6 @@ public class Passenger {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public String getAge() {
-		return age;
-	}
-	public void setAge(String age) {
-		this.age = age;
 	}
 	public String getPhone() {
 		return phone;
