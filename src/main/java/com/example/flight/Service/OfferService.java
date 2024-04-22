@@ -14,60 +14,42 @@ import com.example.flight.Exceptions.TicketNotFoundException;
 
 @Service
 public class OfferService {
-	List<Offer> offerList= new ArrayList<Offer>();
-	Map<String, Offer> offerMap = new HashMap<String, Offer>();
-	
-	public void addOffer(Offer offer) {
-		if(offerMap.containsKey(offer.getOfferId())) {
-			throw new TicketAlreadyExistsException("Ticket Exists");
-		}
-		else {
-			offerList.add(offer);
-			offerMap.put(offer.getOfferId(), offer);
-		}
-	}
-	
-	public void addAllOffer(List<Offer> offerlist) {
-		for(Offer offer:offerlist) {
-			if(offerMap.containsKey(offer.getOfferId())) {
-				throw new TicketAlreadyExistsException("Ticket Exists");
-			}
-			else {
-				offerList.add(offer);
-				offerMap.put(offer.getOfferId(), offer);
-			}
-		}
-	}
-	
-	public List<Offer> getAllOffer() {
-		return offerList;
-	}
-	
-	/** This method retrieves a ticket based on its unique id from ticketmap. **/ 
-	public Offer getOfferById(String offerId) {
-		if(ObjectUtils.isEmpty(offerMap.get(offerId))) {
-			System.out.println("Ticket not found");
-		}
-		return offerMap.get(offerId);
-	}
-	
-	public void deleteOffer(String offerId) {
-		if(ObjectUtils.isEmpty(offerMap.get(offerId))) {
-			throw new TicketNotFoundException("Ticket Doesn't Exists");
-		}
-		else {
-			Offer offer = getOfferById(offerId);
-			offerList.remove(offer);
-			offerMap.remove(offerId);
-		}
-	}
-	public int getPriceByOfferId(String offerId) {
-		if(ObjectUtils.isEmpty(offerMap.get(offerId))) {
-			throw new TicketNotFoundException("Ticket Doesn't Exists");
-		}
-		else {
-			Offer offer = getOfferById(offerId);
-			return offer.getCost();
-		}
-	}
+    private Map<String, Offer> offerMap = new HashMap<>();
+
+    public void addOffer(Offer offer) {
+        if (offerMap.containsKey(offer.getOfferId())) {
+            throw new TicketAlreadyExistsException("Ticket Exists");
+        } else {
+            offerMap.put(offer.getOfferId(), offer);
+        }
+    }
+
+    public List<Offer> getAllOffer() {
+        return new ArrayList<>(offerMap.values());
+    }
+
+    public Offer getOfferById(String offerId) {
+        Offer offer = offerMap.get(offerId);
+        if (ObjectUtils.isEmpty(offer)) {
+            System.out.println("Ticket not found");
+        }
+        return offer;
+    }
+
+    public void deleteOffer(String offerId) {
+        if (!offerMap.containsKey(offerId)) {
+            throw new TicketNotFoundException("Ticket Doesn't Exist");
+        } else {
+            offerMap.remove(offerId);
+        }
+    }
+
+    public int getPriceByOfferId(String offerId) {
+        Offer offer = offerMap.get(offerId);
+        if (ObjectUtils.isEmpty(offer)) {
+            throw new TicketNotFoundException("Ticket Doesn't Exist");
+        } else {
+            return offer.getCost();
+        }
+    }
 }
