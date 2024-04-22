@@ -5,7 +5,7 @@ import java.util.*;
 import javax.persistence.Entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import java.util.UUID;
 
 @Entity
 public class Ticket {
@@ -17,6 +17,11 @@ public class Ticket {
 	String date;
 	@JsonProperty("passengers")
 	List<Passenger> passengers;
+	
+	public Ticket() {
+		this.ticketId = UUID.randomUUID().toString();
+		this.date = "1-1-2024";
+	}
 	
 	public Offer getOffer() {
 		return offer;
