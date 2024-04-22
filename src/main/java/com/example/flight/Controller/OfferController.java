@@ -39,12 +39,12 @@ public class OfferController {
 	}
 	
 	@GetMapping("/{offerId}")
-	public Offer getOfferById(@PathVariable String offerId) {
+	public Offer getOfferById(@PathVariable int offerId) {
 		return offerService.getOfferById(offerId);
 	}
 	
 	@DeleteMapping("/{offerId}")
-	public void deleteOfferById(@PathVariable String offerId) {
+	public void deleteOfferById(@PathVariable int offerId) {
 		offerService.deleteOffer(offerId);
 	}
 }

@@ -1,20 +1,19 @@
 package com.example.flight.Entity;
 
-import java.util.UUID;
 
 public class Offer {
-	String offerId;
+	int offerId;
 	int cost;
 	String origin;
 	String destination;
 	
-	public Offer() {
-		this.offerId = UUID.randomUUID().toString();
-	}
-	public String getOfferId() {
+//	public Offer() {
+//		this.offerId = UUID.randomUUID().toString();
+//	}
+	public int getOfferId() {
 		return offerId;
 	}
-	public void setOfferId(String id) {
+	public void setOfferId(int id) {
 		this.offerId = id;
 	}
 	public int getCost() {
