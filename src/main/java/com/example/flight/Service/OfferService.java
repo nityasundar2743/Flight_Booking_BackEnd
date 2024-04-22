@@ -52,4 +52,11 @@ public class OfferService {
             return offer.getCost();
         }
     }
+
+	public void addAllOffer(List<Offer> offerList) {
+		// TODO Auto-generated method stub
+		for(Offer offer: offerList) {
+			addOffer(offer);
+		}
+	}
 }
