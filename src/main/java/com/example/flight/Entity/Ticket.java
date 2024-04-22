@@ -4,11 +4,18 @@ import java.util.*;
 
 import javax.persistence.Entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 @Entity
 public class Ticket {
+	@JsonProperty("ticketId")
+	String ticketId;
+	@JsonProperty("offer")
 	Offer offer;
+	@JsonProperty("date")
 	String date;
+	@JsonProperty("passengers")
 	List<Passenger> passengers;
 	
 	public Offer getOffer() {
@@ -29,4 +36,16 @@ public class Ticket {
 	public void setPassengers(List<Passenger> passengers) {
 		this.passengers = passengers;
 	}
+	public String getTicketId() {
+		return ticketId;
+	}
+	public void setTicketId(String ticketId) {
+		this.ticketId = ticketId;
+	}
+	@Override
+	public String toString() {
+		return "Ticket [ticketId=" + ticketId + ", offer=" + offer + ", date=" + date + ", passengers=" + passengers
+				+ "]";
+	}
+	
 }
